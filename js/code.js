@@ -104,20 +104,31 @@ $(()=>
         //hide the fruits 
         $("#fruit").hide();
     }
-    //slice the fruits 
-    $("#fruit").mouseover(()=>
-    { 
-        // increase the score by one 
+
+ //slice the fruits 
+   
+    $("#fruit").on("mouseover touchstart", function () { 
+        // Increase the score by one
         score++;
-        //update score value 
+    
+        // Update score value
         $("#scorevalue").html(score);
-        //play the sound 
+    
+        // Play the slice sound
         $("#slicesound")[0].play();
-        // stop fruit 
+    
+        // Stop fruit movement
         clearInterval(action);
-        // hide fruit animate 
-        $("#fruit").hide("explode",200);
-        //send new fruit 
-        setTimeout(startAction,400);
+    
+        // Hide fruit with an explosion effect
+        $("#fruit").hide("explode", 200);
+    
+        // Send a new fruit after a short delay
+        setTimeout(startAction, 400);
     });
+    
+
+
+   
 })
+
